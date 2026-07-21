@@ -143,7 +143,7 @@ data = {
     'NumberOfDependents': np.random.choice([0, 1, 2, 3, 4, 5], num_samples, p=[0.3, 0.25, 0.2, 0.15, 0.07, 0.03]),
     'HomeOwnershipStatus': np.random.choice(['Own', 'Rent', 'Mortgage', 'Other'], num_samples, p=[0.2, 0.3, 0.4, 0.1]),
     'MonthlyDebtPayments': monthly_debt_payments,
-    'CreditCardUtilizationRate': np.random.beta(2, 5, num_samples),
+    'CreditCardUtilisationRate': np.random.beta(2, 5, num_samples),
     'NumberOfOpenCreditLines': np.random.poisson(3, num_samples).clip(0, 15).astype(int),
     'NumberOfCreditInquiries': np.random.poisson(1, num_samples).clip(0, 10).astype(int),
     'BankruptcyHistory': np.random.choice([0, 1], num_samples, p=[0.95, 0.05]),
@@ -280,11 +280,11 @@ def assign_previous_defaults_risk(previous_defaults):
     elif previous_defaults == 1: return 3
     else: return 5
 
-def assign_utilization_risk(utilization):
-    if utilization < 0.20: return 1
-    elif 0.20 <= utilization < 0.40: return 2
-    elif 0.40 <= utilization < 0.60: return 3
-    elif 0.60 <= utilization < 0.80: return 4
+def assign_utilisation_risk(utilisation):
+    if utilisation < 0.20: return 1
+    elif 0.20 <= utilisation < 0.40: return 2
+    elif 0.40 <= utilisation < 0.60: return 3
+    elif 0.60 <= utilisation < 0.80: return 4
     else: return 5
 
 def assign_credit_history_risk(length_of_history):
@@ -328,7 +328,7 @@ def calculate_overall_risk(row):
         assign_payment_history_risk(row['PaymentHistory']) * 2 +
         assign_bankruptcy_risk(row['BankruptcyHistory']) * 3 +
         assign_previous_defaults_risk(row['PreviousLoanDefaults']) * 3 +
-        assign_utilization_risk(row['CreditCardUtilizationRate']) +
+        assign_utilisation_risk(row['CreditCardUtilisationRate']) +
         assign_credit_history_risk(row['LengthOfCreditHistory']) +
         assign_income_risk(row['AnnualIncome']) +
         assign_employment_risk(row['EmploymentStatus']) +
@@ -345,7 +345,7 @@ def calculate_overall_risk(row):
 df['RiskScore'] = df.apply(calculate_overall_risk, axis=1)
 
 # Save to CSV
-df.to_csv('focused_synthetic_loan_data.csv', index=False)
+df.to_csv('C:\\Users\\prana\\OneDrive\\Desktop\\DS_proj_credit_risk\\Intelligent Loan Pricing ML Project\\dataset\\focused_synthetic_loan_data.csv', index=False)
 print("\nFocused synthetic data saved to 'focused_synthetic_loan_data.csv'")
 
 # Display final feature count
