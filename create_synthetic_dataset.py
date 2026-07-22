@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 from scipy import stats
 from datetime import datetime, timedelta
+import os
 
 # Number of samples
 num_samples = 2000
@@ -149,7 +150,7 @@ data = {
     'BankruptcyHistory': np.random.choice([0, 1], num_samples, p=[0.95, 0.05]),
     'LoanPurpose': loan_purpose,
     'PreviousLoanDefaults': np.random.choice([0, 1], num_samples, p=[0.9, 0.1]),
-    'PaymentHistory': np.random.poisson(24, num_samples).clip(0, 60).astype(int),
+    'PaymentHistory': np.random.normal(97,3,num_samples).clip(70,100).astype(int),
     'LengthOfCreditHistory': np.random.randint(1, 30, num_samples),
     'SavingsAccountBalance': savings_account_balance,
     'CheckingAccountBalance': checking_account_balance,
@@ -192,11 +193,11 @@ df['TotalDebtToIncomeRatio'] = ((df['MonthlyDebtPayments'] + df['MonthlyLoanPaym
 # Create a more complex loan approval rule
 def loan_approval_rule(row):
     score = 0
-    score += (row['CreditScore'] - 600) / 250  # Credit score factor
-    score += (100000 - row['AnnualIncome']) / 100000  # Income factor
-    score += (row['TotalDebtToIncomeRatio'] - 0.4) * 2  # DTI factor
-    score += (row['LoanAmount'] - 10000) / 90000  # Loan amount factor
-    score += (row['InterestRate'] - 0.05) * 10  # Interest rate factor
+    score += (row['CreditScore'] - 650) / 350
+    score += (80000 - row['AnnualIncome']) / 150000
+    score += (row['TotalDebtToIncomeRatio'] - 0.35) * 1.5
+    score += (row['LoanAmount'] - 25000) / 150000
+    score += (row['InterestRate'] - 0.06) * 5
     score += 0.5 if row['BankruptcyHistory'] == 1 else 0  # Bankruptcy penalty
     score += 0.3 if row['PreviousLoanDefaults'] == 1 else 0  # Previous default penalty
     score += 0.2 if row['EmploymentStatus'] == 'Unemployed' else 0  # Employment status factor
@@ -219,10 +220,35 @@ def loan_approval_rule(row):
     month = row['ApplicationDate'].month
     score -= 0.1 if 3 <= month <= 8 else 0
 
-    # Random factor to add some unpredictability
-    score += np.random.normal(0, 0.1)
+    # Low credit score + high debt is particularly risky
+    if row['CreditScore'] < 620 and row['TotalDebtToIncomeRatio'] > 0.45:
+        score += 0.8
 
-    return 1 if score < 1 else 0  # Adjust this threshold to change overall approval rate
+    # High income offsets larger loans
+    if row['AnnualIncome'] > 120000 and row['LoanAmount'] < 80000:
+        score -= 0.4
+
+    # Unemployed applicants with low savings are higher risk
+    if (
+        row['EmploymentStatus'] == 'Unemployed'
+        and row['SavingsAccountBalance'] < 5000
+    ):
+        score += 0.6
+
+    # Long employment and good credit reduce risk
+    if (
+        row['Experience'] > 10
+        and row['CreditScore'] > 720
+    ):
+        score -= 0.3
+
+    # Random factor to add some unpredictability
+    score += np.random.normal(0, 0.5)
+
+    
+    # Adjust this threshold to change overall approval rate
+    approval_probability = 1 / (1 + np.exp(score - 1))
+    return np.random.binomial(1, approval_probability)
 
 df['LoanApproved'] = df.apply(loan_approval_rule, axis=1)
 
@@ -322,30 +348,28 @@ def assign_net_worth_risk(net_worth):
 
 # Refined overall risk calculation
 def calculate_overall_risk(row):
-    base_score = (
-        assign_credit_score_risk(row['CreditScore']) * 3 +
-        assign_dti_risk(row['DebtToIncomeRatio']) * 2 +
-        assign_payment_history_risk(row['PaymentHistory']) * 2 +
-        assign_bankruptcy_risk(row['BankruptcyHistory']) * 3 +
-        assign_previous_defaults_risk(row['PreviousLoanDefaults']) * 3 +
-        assign_utilisation_risk(row['CreditCardUtilisationRate']) +
-        assign_credit_history_risk(row['LengthOfCreditHistory']) +
-        assign_income_risk(row['AnnualIncome']) +
-        assign_employment_risk(row['EmploymentStatus']) +
-        assign_net_worth_risk(row['NetWorth']) * 2
-    )
+    risk = 0
+    risk += (850 - row['CreditScore']) / 550 * 3
+    risk += row['TotalDebtToIncomeRatio'] * 2
+    risk += (60 - row['PaymentHistory']) / 60
+    risk += row['BankruptcyHistory'] * 2
+    risk += row['PreviousLoanDefaults'] * 1.5
+    risk += max(0, (80000-row['AnnualIncome'])/80000)
+    risk += np.random.normal(0,0.5)
 
-    # Adjust score based on loan approval status
-    if row['LoanApproved'] == 1:  # Assuming 1 means approved
-        base_score *= 0.8  # Reduce risk score for approved loans
+    return max(0, risk)
 
-    return base_score
 
 # Apply the refined risk calculation
 df['RiskScore'] = df.apply(calculate_overall_risk, axis=1)
 
+#create dataset file path
+folder_path = r"dataset"
+os.makedirs(folder_path, exist_ok=True)
+
+
 # Save to CSV
-df.to_csv('C:\\Users\\prana\\OneDrive\\Desktop\\DS_proj_credit_risk\\Intelligent Loan Pricing ML Project\\dataset\\focused_synthetic_loan_data.csv', index=False)
+df.to_csv(os.path.join(folder_path, 'focused_synthetic_loan_data.csv'), index=False)
 print("\nFocused synthetic data saved to 'focused_synthetic_loan_data.csv'")
 
 # Display final feature count
