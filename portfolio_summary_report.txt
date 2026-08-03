@@ -1,0 +1,130 @@
+
+================================================================================
+INTELLIGENT LOAN PRICING & RISK MANAGEMENT - PORTFOLIO SUMMARY REPORT
+================================================================================
+
+PORTFOLIO OVERVIEW
+--------------------------------------------------------------------------------
+Total Applicants Analyzed:          400
+Total Loan Amount:                  $24,728,209
+Average Loan Amount:                $61,821
+Median Loan Amount:                 $23,682
+
+DEFAULT RISK METRICS
+--------------------------------------------------------------------------------
+Average Default Probability:        57.74%
+Median Default Probability:         67.08%
+Min Default Probability:            4.09%
+Max Default Probability:            91.22%
+
+PROFITABILITY METRICS
+--------------------------------------------------------------------------------
+Total Expected Loss:                $9,464,190
+Total Interest Revenue:             $10,700,600
+Total Net Profit:                   $1,236,410
+Overall Profit Margin:              11.55%
+
+INTEREST RATE ANALYSIS
+--------------------------------------------------------------------------------
+Average Suggested Interest Rate:    45.42%
+Min Interest Rate:                  7.86%
+Max Interest Rate:                  68.85%
+Range:                              60.99%
+
+================================================================================
+RISK TIER SEGMENTATION ANALYSIS
+================================================================================
+
+PRIME
+--------------------------------------------------------------------------------
+Number of Applicants:               31 (7.8% of total)
+Total Loan Amount:                  $2,638,976
+Average Default Probability:        9.99%
+Total Expected Loss:                $176,662
+Total Interest Revenue:             $308,611
+Total Net Profit:                   $131,949
+Profit Margin:                      42.76%
+Average Interest Rate:              11.99%
+
+NEAR-PRIME
+--------------------------------------------------------------------------------
+Number of Applicants:               61 (15.2% of total)
+Total Loan Amount:                  $4,283,630
+Average Default Probability:        22.80%
+Total Expected Loss:                $655,627
+Total Interest Revenue:             $869,809
+Total Net Profit:                   $214,182
+Profit Margin:                      24.62%
+Average Interest Rate:              20.96%
+
+SUBPRIME
+--------------------------------------------------------------------------------
+Number of Applicants:               45 (11.2% of total)
+Total Loan Amount:                  $2,590,557
+Average Default Probability:        40.63%
+Total Expected Loss:                $746,575
+Total Interest Revenue:             $876,103
+Total Net Profit:                   $129,528
+Profit Margin:                      14.78%
+Average Interest Rate:              33.44%
+
+HIGH-RISK
+--------------------------------------------------------------------------------
+Number of Applicants:               263 (65.8% of total)
+Total Loan Amount:                  $15,215,046
+Average Default Probability:        74.41%
+Total Expected Loss:                $7,885,325
+Total Interest Revenue:             $8,646,078
+Total Net Profit:                   $760,752
+Profit Margin:                      8.80%
+Average Interest Rate:              57.09%
+
+================================================================================
+KEY INSIGHTS & RECOMMENDATIONS
+================================================================================
+
+1. MOST PROFITABLE SEGMENT:
+   Prime tier with 42.76% profit margin
+   Recommendation: Prioritize Prime customers for acquisition
+
+2. LARGEST SEGMENT BY VOLUME:
+   High-Risk tier with 263 applicants (65.8%)
+   Recommendation: Refine underwriting to reduce risk concentration
+
+3. PORTFOLIO RISK:
+   Average portfolio default probability: 57.74%
+   Status: HIGH RISK - Over 40% of applicants expected to default
+   Recommendation: Increase risk mitigation measures, require collateral
+
+
+4. PROFITABILITY ANALYSIS:
+   Net Profit per Applicant: $3,091
+   Revenue per Applicant:    $26,752
+   Loss per Applicant:       $23,660
+
+5. HIGH-RISK SEGMENT ANALYSIS:
+   Count: 263 applicants (65.8% of portfolio)
+   Expected Loss: $7,885,325
+   Revenue: $8,646,078
+   Net Profit: $760,752
+   Status: CRITICAL - Over 50% of portfolio is high-risk
+   Recommendation: Consider rejecting high-risk tier or requiring collateral
+   Potential savings if rejected: $7,885,325
+
+
+================================================================================
+AUSTRALIAN REGULATORY COMPLIANCE
+================================================================================
+Risk-Based Pricing Model: COMPLIANT with ASIC guidelines
+  - Pricing based on objective financial metrics
+  - No demographic discrimination (age, gender, ethnicity)
+  - Transparent, auditable decision framework
+  - Fair pricing across all customer segments
+
+Recommended Controls:
+  - Monitor approval rates by gender/age quarterly
+  - Document all pricing decisions for audit trail
+  - Conduct annual fairness assessment
+  - Maintain exception registers for manual overrides
+
+================================================================================
