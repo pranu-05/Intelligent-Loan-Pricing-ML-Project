@@ -1,0 +1,5 @@
+approval_tier,loan_amount,default_probability,expected_loss_dollars,annual_interest_revenue,net_profit,suggested_interest_rate,approval_count,approval_rate,profit_margin_%
+High-Risk,15215046,0.74,3942662.63,8646077.56,4703414.93,0.57,263,100.0,54.4
+Near-Prime,4283630,0.23,655627.48,869808.98,214181.5,0.21,61,100.0,24.62
+Prime,2638976,0.1,176662.37,308611.17,131948.8,0.12,31,100.0,42.76
+Subprime,2590557,0.41,746574.9,876102.75,129527.85,0.33,45,100.0,14.78
