@@ -1,6 +1,6 @@
 # Intelligent Loan Pricing & Risk Management for Australian Banks
 
-A machine learning project for credit risk prediction and pricing optimization.
+A machine learning project for credit risk prediction and pricing optimisation.
 
 ## Installation
 
