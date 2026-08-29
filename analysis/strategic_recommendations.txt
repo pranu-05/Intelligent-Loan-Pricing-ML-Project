@@ -3,8 +3,8 @@ STRATEGIC RECOMMENDATIONS
 ================================================================================
 
 BEST STRATEGY: Collateral (Collateral for High-Risk & Subprime)
-  Net Profit: $5,179,073
-  Profit Margin: 48.40%
+  Net Profit: $3,207,742
+  Profit Margin: 53.74%
   Approval Rate: 100.0%
 
 KEY FINDINGS:
@@ -12,7 +12,7 @@ KEY FINDINGS:
 1. HIGH-RISK SEGMENT PROBLEM
    - 263 applicants (65.8% of total) classified as high-risk
    - Average default probability: 74%
-   - Expected loss: $7,885,325
+   - Expected loss: $3,942,663
    - Only generating $760,752 profit
    - This segment is dragging down overall profitability
 
@@ -22,16 +22,16 @@ KEY FINDINGS:
    - These segments should be prioritized
 
 3. STRATEGY COMPARISON
-   - Current (Approve All): Net profit $1,236,410, margin 11.55%
-   - Conservative: Net profit $346,130, margin 29.37%
-   - Collateral: Net profit $5,179,073, margin 48.40%
-   - Optimal: Net profit $475,658, margin 23.15%
+   - Current (Approve All): Net profit $1,236,410, margin 20.72%
+   - Conservative: Net profit $346,130, margin 45.41%
+   - Collateral: Net profit $3,207,742, margin 53.74%
+   - Optimal: Net profit $475,658, margin 37.60%
 
 RECOMMENDED ACTION PLAN:
 
 1. ADOPT COLLATERAL (COLLATERAL FOR HIGH-RISK & SUBPRIME) STRATEGY
    - This maximizes profitability while managing risk
-   - Increases profit margin by 318.9%
+   - Increases profit margin by 159.4%
 
 2. TIER-BASED APPROVAL DECISIONS
    Prime (0-15% risk): APPROVE - Low risk, high profit
@@ -47,7 +47,7 @@ RECOMMENDED ACTION PLAN:
 4. COLLATERAL STRATEGY (ALTERNATIVE)
    - If you want to approve high-risk: Require collateral
    - This reduces expected loss by 50%
-   - Increases net profit by $3,942,663
+   - Increases net profit by $1,971,331
 
 5. AUSTRALIAN REGULATORY COMPLIANCE
    - Risk-based approval is defensible under ASIC guidelines

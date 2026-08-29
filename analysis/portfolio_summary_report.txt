@@ -19,17 +19,17 @@ Max Default Probability:            91.22%
 
 PROFITABILITY METRICS
 --------------------------------------------------------------------------------
-Total Expected Loss:                $9,464,190
-Total Interest Revenue:             $10,700,600
+Total Expected Loss:                $4,732,095
+Total Interest Revenue:             $5,968,505
 Total Net Profit:                   $1,236,410
-Overall Profit Margin:              11.55%
+Overall Profit Margin:              20.72%
 
 INTEREST RATE ANALYSIS
 --------------------------------------------------------------------------------
-Average Suggested Interest Rate:    45.42%
-Min Interest Rate:                  7.86%
-Max Interest Rate:                  68.85%
-Range:                              60.99%
+Average Suggested Interest Rate:    25.21%
+Min Interest Rate:                  6.43%
+Max Interest Rate:                  36.93%
+Range:                              30.49%
 
 ================================================================================
 RISK TIER SEGMENTATION ANALYSIS
@@ -40,51 +40,51 @@ PRIME
 Number of Applicants:               31 (7.8% of total)
 Total Loan Amount:                  $2,638,976
 Average Default Probability:        9.99%
-Total Expected Loss:                $176,662
-Total Interest Revenue:             $308,611
+Total Expected Loss:                $88,331
+Total Interest Revenue:             $220,280
 Total Net Profit:                   $131,949
-Profit Margin:                      42.76%
-Average Interest Rate:              11.99%
+Profit Margin:                      59.90%
+Average Interest Rate:              8.50%
 
 NEAR-PRIME
 --------------------------------------------------------------------------------
 Number of Applicants:               61 (15.2% of total)
 Total Loan Amount:                  $4,283,630
 Average Default Probability:        22.80%
-Total Expected Loss:                $655,627
-Total Interest Revenue:             $869,809
+Total Expected Loss:                $327,814
+Total Interest Revenue:             $541,995
 Total Net Profit:                   $214,182
-Profit Margin:                      24.62%
-Average Interest Rate:              20.96%
+Profit Margin:                      39.52%
+Average Interest Rate:              12.98%
 
 SUBPRIME
 --------------------------------------------------------------------------------
 Number of Applicants:               45 (11.2% of total)
 Total Loan Amount:                  $2,590,557
 Average Default Probability:        40.63%
-Total Expected Loss:                $746,575
-Total Interest Revenue:             $876,103
+Total Expected Loss:                $373,287
+Total Interest Revenue:             $502,815
 Total Net Profit:                   $129,528
-Profit Margin:                      14.78%
-Average Interest Rate:              33.44%
+Profit Margin:                      25.76%
+Average Interest Rate:              19.22%
 
 HIGH-RISK
 --------------------------------------------------------------------------------
 Number of Applicants:               263 (65.8% of total)
 Total Loan Amount:                  $15,215,046
 Average Default Probability:        74.41%
-Total Expected Loss:                $7,885,325
-Total Interest Revenue:             $8,646,078
+Total Expected Loss:                $3,942,663
+Total Interest Revenue:             $4,703,415
 Total Net Profit:                   $760,752
-Profit Margin:                      8.80%
-Average Interest Rate:              57.09%
+Profit Margin:                      16.17%
+Average Interest Rate:              31.04%
 
 ================================================================================
 KEY INSIGHTS & RECOMMENDATIONS
 ================================================================================
 
 1. MOST PROFITABLE SEGMENT:
-   Prime tier with 42.76% profit margin
+   Prime tier with 59.90% profit margin
    Recommendation: Prioritize Prime customers for acquisition
 
 2. LARGEST SEGMENT BY VOLUME:
@@ -99,17 +99,17 @@ KEY INSIGHTS & RECOMMENDATIONS
 
 4. PROFITABILITY ANALYSIS:
    Net Profit per Applicant: $3,091
-   Revenue per Applicant:    $26,752
-   Loss per Applicant:       $23,660
+   Revenue per Applicant:    $14,921
+   Loss per Applicant:       $11,830
 
 5. HIGH-RISK SEGMENT ANALYSIS:
    Count: 263 applicants (65.8% of portfolio)
-   Expected Loss: $7,885,325
-   Revenue: $8,646,078
+   Expected Loss: $3,942,663
+   Revenue: $4,703,415
    Net Profit: $760,752
    Status: CRITICAL - Over 50% of portfolio is high-risk
    Recommendation: Consider rejecting high-risk tier or requiring collateral
-   Potential savings if rejected: $7,885,325
+   Potential savings if rejected: $3,942,663
 
 
 ================================================================================
