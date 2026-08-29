@@ -1,0 +1,27 @@
+# Jupyter
+.ipynb_checkpoints/
+__pycache__/
+*.py[cod]
+
+# Data (optional - use Git LFS for large files)
+*.pkl
+*.pickle
+
+# Environment
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cache
+.streamlit/
+.cache/
+*.pyc
