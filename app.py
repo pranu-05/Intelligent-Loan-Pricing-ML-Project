@@ -39,9 +39,9 @@ def load_model():
 @st.cache_data
 def load_test_data():
     try:
-        if os.path.exists('Test_data\\X_test.csv') and os.path.exists('Test_data\\y_test.csv'):
-            X_test = pd.read_csv('Test_data\\X_test.csv')
-            y_test = pd.read_csv('Test_data\\y_test.csv').squeeze()
+        if os.path.exists('data\\processed\\X_test.csv') and os.path.exists('data\\processed\\y_test.csv'):
+            X_test = pd.read_csv('data\\processed\\X_test.csv')
+            y_test = pd.read_csv('data\\processed\\y_test.csv').squeeze()
             return X_test, y_test
         else:
             st.warning("X_test.csv or y_test.csv not found")
@@ -61,7 +61,7 @@ def load_scenario_data():
 @st.cache_data
 def load_pricing_data():
     try:
-        return pd.read_csv('Dataset\\pricing_df.csv')
+        return pd.read_csv('data\\raw\\pricing_df.csv')
     except FileNotFoundError:
         st.warning("pricing_df.csv not found")
         return None
@@ -179,7 +179,7 @@ tab1, tab2, tab3, tab4 = st.tabs([
     "Portfolio Dashboard",
     "Pricing Calculator",
     "Risk Tier Analysis",
-    "ℹAbout"
+    "About"
 ])
  
 # ========== TAB 1: PORTFOLIO DASHBOARD ==========

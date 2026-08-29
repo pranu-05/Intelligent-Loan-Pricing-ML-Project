@@ -364,7 +364,7 @@ def calculate_overall_risk(row):
 df['RiskScore'] = df.apply(calculate_overall_risk, axis=1)
 
 #create dataset file path
-folder_path = r"Dataset"
+folder_path = r"data//raw"
 os.makedirs(folder_path, exist_ok=True)
 
 
