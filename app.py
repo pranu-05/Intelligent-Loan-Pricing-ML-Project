@@ -97,7 +97,7 @@ def create_sample_pricing_data():
     loan_amount = np.clip(loan_amount, 5000, 300000)
     
     BASE_RATE = 0.05
-    LGD = 0.35
+    LGD = 0.25
     
     expected_loss_pct = default_probs * LGD
     risk_premium = expected_loss_pct * 10000
@@ -145,7 +145,7 @@ with st.sidebar:
     Built a credit risk model that optimises profitability while managing the risk of defaulting.
     
     **Key Achievement:**
-    - Collateral strategy increases net profit by 318.9% (\$1.24M → \$5.18M)
+    - Collateral strategy increases net profit by 159.4% (\$1.24M → \$3.2M)
     - 100% approval rate with risk-appropriate pricing
     - Expected loss reduction of 42% through collateral requirement
     """)
@@ -165,17 +165,19 @@ with tab1:
     st.header("Portfolio Dashboard")
     
     if pricing_df is not None and len(pricing_df) > 0:
-        # Calculate current strategy (approve all)
-        current_profit = pricing_df['net_profit'].sum()
-        current_loss = pricing_df['expected_loss_dollars'].sum()
-        current_revenue = pricing_df['annual_interest_revenue'].sum()
-        current_margin = (current_profit / current_revenue * 100) if current_revenue > 0 else 0
-        
-        # Load scenario data for collateral strategy
+        # Load scenario data
         scenario_df = load_scenario_data()
         
         if scenario_df is not None:
-            # Get collateral strategy (correct name)
+            # Get current strategy (approve all)
+            current_row = scenario_df[scenario_df['Strategy'] == 'Current (Approve All)'].iloc[0]
+            
+            current_profit = current_row['Net Profit']
+            current_loss = current_row['Expected Loss']
+            current_revenue = current_row['Total Revenue']
+            current_margin = current_row['Profit Margin %']
+            
+            # Get collateral strategy
             collateral_row = scenario_df[scenario_df['Strategy'] == 'Collateral (Collateral for High-Risk & Subprime)'].iloc[0]
             
             collateral_profit = collateral_row['Net Profit']
@@ -183,7 +185,7 @@ with tab1:
             collateral_revenue = collateral_row['Total Revenue']
             collateral_margin = collateral_row['Profit Margin %']
             
-            # Calculate improvements
+            # Calculate improvements (Collateral vs Current)
             profit_improvement = ((collateral_profit - current_profit) / current_profit * 100)
             loss_reduction = ((current_loss - collateral_loss) / current_loss * 100)
             margin_improvement = (collateral_margin - current_margin)
@@ -195,13 +197,13 @@ with tab1:
                 st.metric(
                     "Total Net Profit",
                     f"${collateral_profit:,.0f}",
-                    f"+{profit_improvement:.1f}% vs Current Strategy"
+                    f"+{profit_improvement:.1f}% vs Current"
                 )
             with col2:
                 st.metric(
                     "Expected Loss",
                     f"${collateral_loss:,.0f}",
-                    f"-{loss_reduction:.1f}% vs Current Strategy"
+                    f"-{loss_reduction:.1f}% vs Current"
                 )
             with col3:
                 st.metric(
@@ -213,7 +215,7 @@ with tab1:
                 st.metric(
                     "Profit Margin",
                     f"{collateral_margin:.1f}%",
-                    f"+{margin_improvement:.1f}% vs Current"
+                    f"+{margin_improvement:.1f}pp vs Current"
                 )
 
         st.divider()
@@ -350,7 +352,7 @@ with tab2:
     
     # Pricing calculation from your portfolio analysis
     BASE_RATE = 0.05
-    LGD = 0.35  # Loss Given Default (35%)
+    LGD = 0.25  # Loss Given Default (25%)
     
     expected_loss_pct = estimated_default_prob * LGD
     risk_premium = expected_loss_pct * 100
@@ -454,7 +456,7 @@ with tab2:
         
         **Pricing Formula:**
         - Base Rate: 5%
-        - Loss Given Default: 35%
+        - Loss Given Default: 25%
         - Suggested Rate = Base Rate + (Default Prob × LGD × 100)
         
         **Recommendation Tiers:**
