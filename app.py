@@ -132,7 +132,7 @@ def create_sample_pricing_data():
     return pricing_df
 
 if pricing_df is not None:
-    data_source = "Loaded from CSV"
+    data_source = "Loaded from a synthetic dataset developed for this project"
 else:
     data_source = "CSV not found"
     
@@ -142,7 +142,7 @@ with st.sidebar:
     st.markdown("""
     ### About This Project
     
-    Built a credit risk model that optimises profitability while managing the risk of defaulting.
+    Built a personal loan credit risk model that optimises profitability while managing the risk of defaulting.
     
     **Key Achievement:**
     - Collateral strategy increases net profit by 159.4% (\$1.24M → \$3.2M)
@@ -299,11 +299,11 @@ with tab1:
 # ========== TAB 2: PRICING CALCULATOR ==========
 
 with tab2:
-    st.header("Risk-Based Pricing Calculator")
+    st.header("Risk-Based Loan Pricing Calculator")
     
     st.markdown("""
     Enter applicant details to calculate:
-    - Default probability (using Australian lending data model)
+    - Default probability (using an Australian-inspired lending data model)
     - Suggested interest rate  
     - Approval recommendation
     """)
@@ -456,7 +456,7 @@ with tab2:
         
         **Pricing Formula:**
         - Base Rate: 5%
-        - Loss Given Default: 25%
+        - Loss Given Default: 20%
         - Suggested Rate = Base Rate + (Default Prob × LGD × 100)
         
         **Recommendation Tiers:**
@@ -654,7 +654,7 @@ with tab4:
     
     st.subheader("Project Overview")
     st.markdown("""
-    This project implements an **intelligent loan pricing and risk management system** for Australian banks.
+    This project implements an **intelligent  loan pricing and risk management system** for Australian banks, with regard to personal loan applications.
     
     **Key Achievement:**
     - Collateral strategy increases annual net profit by 318.9%
